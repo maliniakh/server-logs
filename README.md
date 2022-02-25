@@ -1,8 +1,8 @@
-Running
+# Running
     ./gradlew run --args="input_file.txt"
 
 
-Notes
+# Notes
     I selected GSON as JSON parser, it seems to have good balance beween being lightweight and robust.
     Assumption is made that every file line is a separate JSON entry.
     Decided not to use Spring as DI, went for "manual" dependecy injection instead.
@@ -11,7 +11,7 @@ Notes
     A few additional remarks are present in the code as comments
 
 
-Further improvements
+# Further improvements
     Add more test cases, for example with malformed input
     Improve error handling
         Probably introducing some project-specific exceptions is the way to go.
