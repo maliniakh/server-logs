@@ -1,9 +1,11 @@
 package com.example.service;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.NoSuchFileException;
 
 import static org.mockito.Mockito.*;
 
@@ -25,15 +27,13 @@ class LogServiceTest {
     }
 
     @Test
-    void testFilesDoesntExist() throws IOException {
+    void testFilesDoesntExist() {
         AlertService alertService = mock(AlertService.class);
         logService = new LogService(alertService);
 
-        ClassLoader classLoader = getClass().getClassLoader();
         File file = new File("non-existent.txt");
-
-        logService.parse(file);
-
-        verify(alertService, times(6)).process(any());
+        Assertions.assertThrows(NoSuchFileException.class, () -> {
+            logService.parse(file);
+        });
     }
 }
