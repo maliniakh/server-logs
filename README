@@ -1,15 +1,5 @@
-
-
-todo
-    wygenerowac duzy plik i przetestowac
-    id w db zrobic unikalne
-    error handling zrobic
-    logback.xml
-
 Running
     ./gradlew run --args="input_file.txt"
-
-Assumptions
 
 
 Notes
